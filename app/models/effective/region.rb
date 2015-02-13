@@ -4,14 +4,6 @@ module Effective
 
     belongs_to :regionable, :polymorphic => true
 
-    structure do
-      title             :string, :validates => [:presence]
-      content           :text
-      snippets          :text
-
-      timestamps
-    end
-
     serialize :snippets, HashWithIndifferentAccess
 
     scope :global, -> { where("#{EffectiveRegions.regions_table_name}.regionable_type IS NULL").where("#{EffectiveRegions.regions_table_name}.regionable_id IS NULL") }
