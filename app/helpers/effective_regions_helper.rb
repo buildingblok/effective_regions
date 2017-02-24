@@ -20,9 +20,9 @@ module EffectiveRegionsHelper
   end
 
   # Loads the Ckeditor Javascript & Stylesheets only when in edit mode
-  def effective_regions_include_tags
+  def effective_regions_include_tags(**options)
     if effectively_editting?
-      javascript_include_tag('effective_ckeditor') + stylesheet_link_tag('effective_ckeditor')
+      javascript_include_tag('effective_ckeditor', options) + stylesheet_link_tag('effective_ckeditor')
     end
   end
 
